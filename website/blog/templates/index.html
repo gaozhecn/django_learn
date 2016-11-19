@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- ///测试模板,django_base_2视频
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -7,4 +8,112 @@
 <body>
     <h1>hello django</h1>
 </body>
+-->
+<!--模板,django_base_3视频
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title}}</title>
+</head>
+<body>
+    <h1>hello {{ user.name}}</h1>
+    <li>age:{{ user.age }}</li>
+    <li>sex:{{ user.sex }}</li>
+    <h1>{{ p.name }}</h1>
+    <li>age:{{ p.age }}</li>
+    <li>sex:{{ p.sex }}</li>///调用类的属性
+    <li>{{ p.say }}</li> ///调用类的成员函数
+    <li>{{ book_list }}</li>
+    <li>{{ book_list.0 }}</li>
+    <li>{{ book_list.1 }}</li>
+    <li>{{ book_list.2 }}</li>
+    <li>{{ book_list.3 }}</li>
+</body>
+-->
+{%comment %}<!--模板,django_base_4视频-->
+<head>{{ title }}</head>
+<body>
+    <h1></h1>
+    {% if user.age < 18 %}<!--不需要{}，也不要（）-->
+        <li>未成年</li>
+    {% else %}<!--没有else if语法-->
+        <li>成年</li>
+    {% endif %}
+
+    <li></li>
+    {% if not user1 %}<!--支持关键字and,or,not，也可表示对象是否存在-->
+        <li>user1 不存在</li>
+    {% endif %}
+    <li></li>
+    {% if user.name %}<!--判断字符串为空-->
+        <li>user name NUll</li>
+    {% endif %}
+    <li></li>
+    {% if user.age %}<!-- 判断一个数为0-->
+        <li>user age equal 0</li>
+    {% endif %}
+    <li></li>
+    {% for book in book_list %}<!--for 没有 break continue-->
+        {% if forloop.first %}
+            <li>for begin</li>
+        {% endif %}
+        <li>{{ book }}</li>
+        <li>forloop.counter:{{ forloop.counter }}</li><!--循环第几次-->
+        <li>forloop.counter0:{{ forloop.counter0 }}</li><!--循环从哪里开始-->
+        <li>forloop.revcounter:{{ forloop.revcounter }}</li><!--剩余循环几次-->
+        <li>forloop.revcounter0:{{ forloop.revcounter0 }}</li>
+        {% if not book %}<!--判断数组成员-->
+            <li>no book if not</li>
+        {% endif %}
+         {% if forloop.last %}
+            <li>for end</li>
+         {% endif %}
+        {% empty %}<!--判断book_list-->
+            <li>no book</li>
+    {% endfor %}
+    <li></li>
+</body>{% endcomment %}
+
+<head>{{ title }}</head>
+<body>
+    <h1></h1>
+    {% if user.age < 18 %}<!--不需要{}，也不要（）-->
+        <li>未成年</li>
+    {% else %}<!--没有else if语法-->
+        <li>成年</li>
+    {% endif %}
+
+    <li></li>
+    {% if not user1 %}<!--支持关键字and,or,not，也可表示对象是否存在-->
+        <li>user1 不存在</li>
+    {% endif %}
+    <li></li>
+    {% if user.name %}<!--判断字符串为空-->
+        <li>user name NUll</li>
+    {% endif %}
+    <li></li>
+    {% if user.age %}<!-- 判断一个数为0-->
+        <li>user age equal 0</li>
+    {% endif %}
+    <li></li>
+    {% for book in book_list %}<!--for 没有 break continue-->
+        {% if forloop.first %}
+            <li>for begin</li>
+        {% endif %}
+        <li>{{ book }}</li>
+        <li>forloop.counter:{{ forloop.counter }}</li><!--循环第几次-->
+        <li>forloop.counter0:{{ forloop.counter0 }}</li><!--循环从哪里开始-->
+        <li>forloop.revcounter:{{ forloop.revcounter }}</li><!--剩余循环几次-->
+        <li>forloop.revcounter0:{{ forloop.revcounter0 }}</li>
+        {% if not book %}<!--判断数组成员-->
+            <li>no book if not</li>
+        {% endif %}
+         {% if forloop.last %}
+            <li>for end</li>
+         {% endif %}
+        {% empty %}<!--判断book_list-->
+            <li>no book</li>
+    {% endfor %}
+    <li></li>
+</body>
+
 </html>
