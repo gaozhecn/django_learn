@@ -44,3 +44,6 @@ urlpatterns = [
 urlpatterns = patterns("blog.views",
                        url(r'blog/',include('blog.urls')),
                        )
+
+urlpatterns += patterns('',
+                        url(r'^admin/', include(admin.site.urls)),)

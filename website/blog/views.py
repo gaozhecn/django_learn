@@ -6,10 +6,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader, Context
 import datetime
-'''django_base1视频
+'''django_base1视频'''
 def index(request):
     return HttpResponse("<h1>Helle World!</h1>")
-'''
+
 
 ''' django_base2视频
 def index_template(request):
