@@ -1,6 +1,7 @@
+<!-- ///测试模板,django_base_2视频
 <!DOCTYPE html>
 <html lang="en">
-<!-- ///测试模板,django_base_2视频
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -73,47 +74,18 @@
     <li></li>
 </body>{% endcomment %}
 
-<head>{{ title }}</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>title is {{ title }}</head>
 <body>
-    <h1></h1>
-    {% if user.age < 18 %}<!--不需要{}，也不要（）-->
-        <li>未成年</li>
-    {% else %}<!--没有else if语法-->
-        <li>成年</li>
-    {% endif %}
-
     <li></li>
-    {% if not user1 %}<!--支持关键字and,or,not，也可表示对象是否存在-->
-        <li>user1 不存在</li>
-    {% endif %}
     <li></li>
-    {% if user.name %}<!--判断字符串为空-->
-        <li>user name NUll</li>
-    {% endif %}
-    <li></li>
-    {% if user.age %}<!-- 判断一个数为0-->
-        <li>user age equal 0</li>
-    {% endif %}
     <li></li>
     {% for book in book_list %}<!--for 没有 break continue-->
-        {% if forloop.first %}
-            <li>for begin</li>
-        {% endif %}
-        <li>{{ book }}</li>
-        <li>forloop.counter:{{ forloop.counter }}</li><!--循环第几次-->
-        <li>forloop.counter0:{{ forloop.counter0 }}</li><!--循环从哪里开始-->
-        <li>forloop.revcounter:{{ forloop.revcounter }}</li><!--剩余循环几次-->
-        <li>forloop.revcounter0:{{ forloop.revcounter0 }}</li>
-        {% if not book %}<!--判断数组成员-->
-            <li>no book if not</li>
-        {% endif %}
-         {% if forloop.last %}
-            <li>for end</li>
-         {% endif %}
-        {% empty %}<!--判断book_list-->
-            <li>no book</li>
+        <li>{{ book | upper | lower | capfirst}}</li><!--|过滤器，管道，管道在这里的作用就是把小写转换成大写-->
     {% endfor %}
-    <li></li>
+    <li>today is{{ data | date:"Y-m-d"}}</li><!--只显示年月日-->
+    {% load percent %}
+    <li>today is{{ data | date:"Y-m-d" | percent}}</li><!--用自定义的过滤器-->
 </body>
-
 </html>
