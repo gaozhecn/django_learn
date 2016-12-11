@@ -87,3 +87,8 @@ def bar(request,id,name):
     t = loader.get_template("time.html")
     c = Context({"time":datetime.datetime.now(),"id":id,"name":name})#http://127.0.0.1:8000/blog/foo/1234/as23424sd/
     return HttpResponse(t.render(c))
+
+
+
+
+
